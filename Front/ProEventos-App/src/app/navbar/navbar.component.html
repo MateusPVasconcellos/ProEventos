@@ -1,7 +1,7 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
   <a class="navbar-brand" href="#">ProEventos</a>
-  <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler me-3" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav" [collapse]="isCollapsed" [isAnimated]="true">
@@ -14,6 +14,20 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contatos</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle show" (click)="isDropdownCallapesed = !isDropdownCallapesed"
+          id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+            <i class="fas fa-user fa-fw"></i>
+          </a>
+          <ul [collapse]="isDropdownCallapesed" [isAnimated]="true" class="dropdown-menu dropdown-menu-end show" aria-labelledby="navbarDropdown" data-bs-popper="none">
+              <li><a class="dropdown-item" href="#!">Settings</a></li>
+              <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#!">Logout</a></li>
+          </ul>
       </li>
     </ul>
   </div>

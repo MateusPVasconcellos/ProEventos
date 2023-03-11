@@ -1,22 +1,32 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
+import { NavbarComponent } from './navbar/navbar.component';
+import { EventoService } from './services/evento.service';
+import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventosComponent,
     PalestrantesComponent,
-    NavbarComponent
+    NavbarComponent,
+    DateTimeFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -25,9 +35,20 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     NgbModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
+    TooltipModule.forRoot(),
+    BsDropdownModule.forRoot(),
     FormsModule,
+    ModalModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true,
+    }),
+    NgxSpinnerModule
   ],
-  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [EventoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
