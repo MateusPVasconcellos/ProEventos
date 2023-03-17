@@ -1,16 +1,18 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { Evento } from '../models/Evento';
-import { EventoService } from '../services/evento.service';
+import { Evento } from '../../../models/Evento';
+import { EventoService } from '../../../services/evento.service';
 
 @Component({
-  selector: 'app-eventos',
-  templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.scss'],
+  selector: 'app-evento-lista',
+  templateUrl: './evento-lista.component.html',
+  styleUrls: ['./evento-lista.component.scss']
 })
-export class EventosComponent implements OnInit {
+export class EventoListaComponent implements OnInit {
+
   modalRef: BsModalRef | undefined;
   public eventos: Evento[] = [];
   public eventosFiltrados: Evento[] = [];
@@ -23,13 +25,14 @@ export class EventosComponent implements OnInit {
     private eventoService: EventoService,
     private modalService: BsModalService,
     private toastrService: ToastrService,
-    private spinner: NgxSpinnerService
-    ) { }
+    private spinner: NgxSpinnerService,
+    private router: Router,
+  ) { }
 
-    public ngOnInit(): void {
-      this.spinner.show();
-      this.getEventos();
-    }
+  public ngOnInit(): void {
+    this.spinner.show();
+    this.getEventos();
+  }
 
   public filtrarEventos(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
@@ -55,7 +58,7 @@ export class EventosComponent implements OnInit {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
       },
-      erro: (error: any) => {
+      error: (error: any) => {
         this.spinner.hide();
         this.toastrService.error('Erro ao carregar os eventos!', 'Erro!')
       },
@@ -67,7 +70,7 @@ export class EventosComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   }
 
   confirm(): void {
@@ -77,6 +80,10 @@ export class EventosComponent implements OnInit {
 
   decline(): void {
     this.modalRef?.hide();
+  }
+
+  detalheEvento(id: number): void {
+    this.router.navigate([`eventos/detalhe/${id}`]);
   }
 
 }
