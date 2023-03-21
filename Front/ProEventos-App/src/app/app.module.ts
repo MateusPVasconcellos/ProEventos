@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,16 +20,16 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { EventosComponent } from './components/eventos/eventos.component';
-import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { TituloComponent } from './shared/titulo/titulo.component';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
-import { UserComponent } from './components/user/user.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
 import { LoginComponent } from './components/user/login/login.component';
-import { RegistrationComponent } from './components/user/registration/registration.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
+import { UserComponent } from './components/user/user.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { TituloComponent } from './shared/titulo/titulo.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +58,7 @@ import { PerfilComponent } from './components/user/perfil/perfil.component';
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 5000,
