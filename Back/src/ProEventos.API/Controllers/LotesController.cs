@@ -56,13 +56,13 @@ namespace ProEventos.API.Controllers
             }
         }
 
-        [HttpDelete("{eventoId}/{loteId}")]
-        public async Task<IActionResult> Delete(int eventoId, int LoteId)
+        [HttpDelete("{loteId}/{eventoId}")]
+        public async Task<IActionResult> Delete(int eventoId, int loteId)
         {
             try
             {
-                if (await _lotesService.DeleteLote(eventoId, LoteId)) return Ok(new { menssagem = "Deletado" });
-                else return BadRequest("Erro ao deletar evento.");
+                if (await _lotesService.DeleteLote(eventoId, loteId)) return Ok(new { menssagem = "Deletado" });
+                else return BadRequest("Erro ao deletar lote.");
             }
             catch (Exception ex)
             {
