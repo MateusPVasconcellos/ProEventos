@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\20210103_1231227568.jpg" />
+    <None Remove="Resources\Images\Anotação 2233717344.png" />
+    <None Remove="Resources\Images\Anotação-2230904134.png" />
+    <None Remove="Resources\Images\Anotação-2233953596.png" />
+    <None Remove="Resources\Images\Anotação-2234033662.png" />
+    <None Remove="Resources\Images\Anotação-2234131541.png" />
+    <None Remove="Resources\Images\Anotação-2234543065.png" />
+    <None Remove="Resources\Images\Anotação-2234830781.png" />
+    <None Remove="Resources\Images\cpf232307227.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
